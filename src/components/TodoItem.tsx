@@ -37,9 +37,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              value={text} // Bind the input field value to the text state
-              onChange={(e) => setText(e.target.value)} // Update state with the input value
-              className="todo-input" // Apply CSS class for styling
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              className="todo-input"
             />
             <button className="complete-edit-button">Finish Edit</button>
           </form>
@@ -54,10 +54,10 @@ const TodoItem: React.FC<TodoItemProps> = ({
           style={{
             textDecoration: todo.completed ? "line-through" : "none",
             wordWrap: "break-word",
-          }} // We render it with a line through if completed is true otherwise we do nothing
-          onClick={() => toggleCompletedTodo(todo.id)} // We give it the property of when clicked we call toggle and pass the id
+          }} //
+          onClick={() => toggleCompletedTodo(todo.id)}
         >
-          {todo.text} {/* Display the text of the todo item */}
+          {todo.text}
         </span>
         <button
           className="edit-button"

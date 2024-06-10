@@ -13,14 +13,13 @@ interface TodoFormProps {
  * to add the new task and then resets the input field.
  */
 const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
-  const [text, setText] = useState<string>(""); // Initialize the state to an empty string and hold the current input value
+  const [text, setText] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    // Check if the input is not empty
+    e.preventDefault();
     if (text.trim()) {
-      addTodo(text); // Call the addTodo function passed via props with the current input value
-      setText(""); // Reset the input field
+      addTodo(text);
+      setText("");
     }
   };
 
@@ -30,10 +29,10 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            value={text} // Bind the input field value to the text state
-            onChange={(e) => setText(e.target.value)} // Update state with the input value
-            placeholder="new todo..." // Placeholder text for the input field
-            className="todo-input" // Apply CSS class for styling
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="new todo..."
+            className="todo-input"
           />
           <button className="todo-form-add-button">Add</button>
         </form>

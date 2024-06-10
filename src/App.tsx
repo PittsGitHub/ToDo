@@ -15,39 +15,36 @@ import "./styles/collection.style.css";
  * App component
  *
  * This is the main component that manages the state of the to-do list.
- * It maintains an array of todo items and provides functions to add,
- * toggle, and remove todo items. It renders the TodoForm and TodoList
+ * It maintains an array of todo items and provides calls to add,
+ * toggle, remove and edit todo items. It renders the TodoForm and TodoList
  * components, passing the necessary props to them.
  */
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<ITodo[]>([]); // Initialize the state to hold an array of Todo items, initially an empty array
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
   const handleAddTodo = (text: string) => {
-    setTodos(addTodo(todos, text)); // Update the state with the new list of todo items after adding a new todo
+    setTodos(addTodo(todos, text)); //
   };
 
   const handleEditModeToggleTodo = (id: number) => {
-    setTodos(toggleEditMode(todos, id)); // Update the state with the new list of todo items after editing a todo
+    setTodos(toggleEditMode(todos, id));
   };
 
   const handleCompleteToggleTodo = (id: number) => {
-    setTodos(toggleCompleteTodo(todos, id)); // Update the state with the new list of todo items after setting a todo to complete or not completed
+    setTodos(toggleCompleteTodo(todos, id));
   };
 
   const handleRemoveTodo = (id: number) => {
-    setTodos(removeTodo(todos, id)); // Update the state with the new list of todo items after removing a todo
+    setTodos(removeTodo(todos, id));
   };
   const handleEditTodo = (id: number, text: string) => {
-    setTodos(editTodo(todos, id, text)); // Update the state with the new list of todo items after removing a todo
+    setTodos(editTodo(todos, id, text));
   };
 
   return (
     <div className="App">
-      {/* Apply CSS class for styling */}
       <h1 className="todo-list-header">Todos</h1>{" "}
-      {/* Apply CSS class for styling */}
       <TodoForm addTodo={handleAddTodo} />{" "}
-      {/* Render the form for adding new todo items */}
       <TodoList
         todos={todos}
         toggleEditModeTodo={handleEditModeToggleTodo}
@@ -55,7 +52,6 @@ const App: React.FC = () => {
         removeTodo={handleRemoveTodo}
         editTodo={handleEditTodo}
       />
-      {/* Render the list of todo items */}
     </div>
   );
 };

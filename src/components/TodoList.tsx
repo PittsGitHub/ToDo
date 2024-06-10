@@ -26,14 +26,13 @@ const TodoList: React.FC<TodoListProps> = ({
 }) => {
   return (
     <div className="todo-list">
-      {/* Apply CSS class for styling */}
       {todos.map((todo) => (
         <TodoItem
-          key={todo.id} // Unique key for each todo item
-          todo={todo} // The todo item object
-          toggleEditModeTodo={toggleEditModeTodo} // Function to edit the todo item
-          toggleCompletedTodo={toggleCompleteTodo} // Function to toggle the todo item
-          removeTodo={removeTodo} // Function to remove the todo item
+          key={todo.id}
+          todo={todo}
+          toggleEditModeTodo={toggleEditModeTodo}
+          toggleCompletedTodo={toggleCompleteTodo}
+          removeTodo={removeTodo}
           editTodo={editTodo}
         />
       ))}
