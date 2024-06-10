@@ -1,0 +1,64 @@
+/* Style for individual todo items */
+.todo-item-default {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px; /* Set a fixed width for todo items */
+  min-width: 20px; /* Set a minimum width for todo items */
+  padding: 4px;
+  margin-bottom: 8px;
+  background-color: #bebdbd; /* Set background color to white */
+  border: 1px solid #ccc; /* Add a border with light gray color */
+  border-radius: 4px; /* Round the corners of the border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  flex-wrap: wrap;
+}
+/* Style for the text inside todo items */
+.todo-item-default span {
+  display: flex;
+  flex-grow: 1; /* Allow the span to grow and take available space */
+  margin: 8px; /* Space between the text and the remove button */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable text */
+  border-radius: 4px; /* Round the corners of the border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+
+  height: auto; /* Adjust height to fit the content */
+  width: 200px; /* Adjust width to fit the content */
+  display: block; /* Change to block to allow proper wrapping */
+  word-wrap: break-word; /* Ensure long words wrap */
+  word-break: break-word; /* Break long words at the boundary */
+  white-space: normal; /* Allow text to wrap */
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: #fdfbfb;
+}
+
+/* Style for the remove button inside todo items */
+.todo-item-default button {
+  flex-shrink: 0; /* Prevent the button from shrinking */
+  padding: 6px 12px;
+  color: white; /* Set text color to white */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable button */
+  min-height: 30px;
+  min-width: 50px;
+}
+
+.edit-button {
+  margin: 5px; /* Add space above the todo list */
+  background-color: rgb(141, 122, 45); /* Set background color to a red shade */
+}
+.edit-button:hover {
+  margin: 5px; /* Add space above the todo list */
+  background-color: rgb(105, 91, 33); /* Set background color to a red shade */
+}
+.remove-button {
+  margin: 5px; /* Add space above the todo list */
+  background-color: #b94040; /* Set background color to a red shade */
+}
+/* Style for the remove button on hover */
+.remove-button:hover {
+  background-color: #8b4140; /* Change background color on hover for visual feedback */
+}

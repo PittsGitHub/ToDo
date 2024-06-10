@@ -1,0 +1,77 @@
+/* Style for the text inside todo items */
+.todo-item-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 408px; /* Set a fixed width for todo items */
+  height: 57px;
+  min-width: 20px; /* Set a minimum width for todo items */
+  margin-bottom: 8px;
+  background-color: rgb(247, 183, 119); /* Set background color */
+  border: 1px solid #ccc; /* Add a border with light gray color */
+  border-radius: 4px; /* Round the corners of the border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  flex-wrap: wrap;
+}
+
+.todo-item-edit form {
+  justify-content: space-between;
+  display: flex; /* Use flexbox for the form layout */
+  flex-grow: 1;
+  margin: 8px; /* Space between the text and the remove button */
+  border-radius: 4px; /* Round the corners of the border */
+  height: auto; /* Adjust height to fit the content */
+  width: 100%; /* Make the form take up the full width */
+  align-items: center;
+}
+
+/* Style for the remove button inside todo items */
+.todo-item-edit button {
+  flex-shrink: 0; /* Prevent the button from shrinking */
+  padding: 6px 12px;
+  color: white; /* Set text color to white */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable button */
+  min-height: 30px;
+  min-width: 50px;
+  margin-left: 4px; /* Add space between buttons */
+}
+
+/* Style for the input field */
+.todo-item-edit input {
+  background-color: #fdfbfb; /* Set background color to white */
+  margin-left: 4px; /* Add space to the left of the input field */
+  padding: 5px;
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  height: 22px;
+  width: 253px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center text horizontally */
+  line-height: 22px; /* Center text vertically by matching the line height with the input height */
+  font-size: medium;
+}
+/* Style for the input field */
+.todo-item-edit input:focus {
+  outline: 2px;
+  outline-color: #273e53;
+  outline-offset: 0px;
+  outline-style: solid;
+}
+
+.complete-edit-button {
+  background-color: rgb(
+    75,
+    117,
+    27
+  ); /* Set background color to a specific shade */
+}
+
+.complete-edit-button:hover {
+  flex-shrink: 0; /* Prevent the button from shrinking */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable button */
+  background-color: rgb(62, 95, 23); /* Set background color on hover */
+}

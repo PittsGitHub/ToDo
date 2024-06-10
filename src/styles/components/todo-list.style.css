@@ -1,0 +1,16 @@
+/* Style for the todo list header */
+.todo-list-header {
+  font-size: xx-large; /* Set font size to extra extra large */
+  margin-bottom: 10px;
+  color: rgb(212, 152, 41);
+  text-shadow:
+    -1px 0 black,
+    0 2px black,
+    2px 0 black,
+    0 -1px black;
+}
+
+/* Style for the todo list container */
+.todo-list {
+  margin-top: 10px; /* Add space above the todo list */
+}

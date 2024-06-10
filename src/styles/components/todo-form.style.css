@@ -1,0 +1,50 @@
+.todo-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #bebdbd; /* Set background color to white */
+  border: 1px solid #ccc; /* Add a border with light gray color */
+  border-radius: 4px; /* Round the corners of the border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  width: 300px; /* Set a fixed width for todo items */
+  min-width: 200px; /* Set a minimum width for todo items */
+}
+/* Style for the input field */
+.todo-form input {
+  background-color: #fdfbfb; /* Set background color to white */
+  margin-right: 8px; /* Add space to the right of the input field */
+  padding: 5px;
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  height: 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+/* Style for the input field */
+.todo-form input:focus {
+  outline: 2px;
+  outline-color: #273e53;
+  outline-offset: 0px;
+  outline-style: solid;
+}
+
+.todo-form span {
+  flex-grow: 1; /* Allow the span to grow and take available space */
+}
+
+/* Style for the remove button inside todo items */
+.todo-form button {
+  flex-shrink: 0; /* Prevent the button from shrinking */
+  padding: 9px 18px;
+  color: white; /* Set text color to white */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer to indicate clickable button */
+}
+.todo-form-add-button {
+  margin: 5px; /* Add space above the todo list */
+  background-color: rgb(92, 143, 34); /* Set background color to a red shade */
+}
+.todo-form-add-button:hover {
+  margin: 5px; /* Add space above the todo list */
+  background-color: rgb(62, 95, 23); /* Set background color to a red shade */
+}
