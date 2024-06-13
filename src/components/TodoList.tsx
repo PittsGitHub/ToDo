@@ -1,5 +1,6 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import TodoItemEdit from "./TodoItem-edit";
+import TodoItemDefault from "./TodoItem-default";
 import { ITodo } from "../interfaces/ITodo";
 
 interface TodoListProps {
@@ -26,16 +27,27 @@ const TodoList: React.FC<TodoListProps> = ({
 }) => {
   return (
     <div className="todo-list">
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          toggleEditModeTodo={toggleEditModeTodo}
-          toggleCompletedTodo={toggleCompleteTodo}
-          removeTodo={removeTodo}
-          editTodo={editTodo}
-        />
-      ))}
+      {todos.map((todo) =>
+        todo.editMode ? (
+          <TodoItemEdit
+            key={todo.id}
+            todo={todo}
+            toggleEditModeTodo={toggleEditModeTodo}
+            toggleCompletedTodo={toggleCompleteTodo}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+          />
+        ) : (
+          <TodoItemDefault
+            key={todo.id}
+            todo={todo}
+            toggleEditModeTodo={toggleEditModeTodo}
+            toggleCompletedTodo={toggleCompleteTodo}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+          />
+        ),
+      )}
     </div>
   );
 };
