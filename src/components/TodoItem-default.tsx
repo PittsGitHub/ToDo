@@ -1,12 +1,11 @@
 import React from "react";
 import { ITodo } from "../interfaces/ITodo";
 
-interface TodoItemProps {
+interface TodoDefaultItemProps {
   todo: ITodo;
   toggleCompletedTodo: (id: number) => void;
   toggleEditModeTodo: (id: number) => void;
   removeTodo: (id: number) => void;
-  editTodo: (id: number, text: string) => void;
 }
 
 /**
@@ -17,7 +16,7 @@ interface TodoItemProps {
  * When the remove button is clicked, it removes the todo.
  * When the edit button is clicked it sets the editMode flag to true
  */
-const TodoItem: React.FC<TodoItemProps> = ({
+const TodoItem: React.FC<TodoDefaultItemProps> = ({
   todo,
   toggleEditModeTodo,
   toggleCompletedTodo,

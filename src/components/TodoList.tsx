@@ -29,14 +29,7 @@ const TodoList: React.FC<TodoListProps> = ({
     <div className="todo-list">
       {todos.map((todo) =>
         todo.editMode ? (
-          <TodoItemEdit
-            key={todo.id}
-            todo={todo}
-            toggleEditModeTodo={toggleEditModeTodo}
-            toggleCompletedTodo={toggleCompleteTodo}
-            removeTodo={removeTodo}
-            editTodo={editTodo}
-          />
+          <TodoItemEdit key={todo.id} todo={todo} editTodo={editTodo} />
         ) : (
           <TodoItemDefault
             key={todo.id}
@@ -44,9 +37,8 @@ const TodoList: React.FC<TodoListProps> = ({
             toggleEditModeTodo={toggleEditModeTodo}
             toggleCompletedTodo={toggleCompleteTodo}
             removeTodo={removeTodo}
-            editTodo={editTodo}
           />
-        ),
+        )
       )}
     </div>
   );

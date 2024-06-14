@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { ITodo } from "../interfaces/ITodo";
 
-interface TodoItemProps {
+interface TodoEditItemProps {
   todo: ITodo;
-  toggleCompletedTodo: (id: number) => void;
-  toggleEditModeTodo: (id: number) => void;
-  removeTodo: (id: number) => void;
   editTodo: (id: number, text: string) => void;
 }
 
@@ -16,7 +13,7 @@ interface TodoItemProps {
  * It displays the text of the todo and provides functionality to edit the todo
  * once an edit is made and finish is pressed it togglesEditMode back to false
  */
-const TodoItem: React.FC<TodoItemProps> = ({ todo, editTodo }) => {
+const EditTodoProps: React.FC<TodoEditItemProps> = ({ todo, editTodo }) => {
   const [text, setText] = useState<string>(todo.text);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,4 +37,4 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, editTodo }) => {
   );
 };
 
-export default TodoItem;
+export default EditTodoProps;
