@@ -1,5 +1,6 @@
 import { ISearchAddInput } from "../interfaces/ISearchAddInput";
 import { ITodo } from "../interfaces/ITodo";
+import { countCharactersWithoutSpaces } from "./HelperServices";
 
 export const addTodo = (
   todos: ITodo[],
@@ -43,7 +44,18 @@ export const updateSearchAddInput = (
   currentSearchAddInput: ISearchAddInput,
   newText: string
 ): ISearchAddInput => {
-  currentSearchAddInput = { inputText: newText };
+  currentSearchAddInput = { inputText: newText, filterTodos: false };
+
+  if (countCharactersWithoutSpaces(newText) > 2) {
+    currentSearchAddInput.filterTodos = true;
+  }
 
   return currentSearchAddInput;
+};
+
+export const filterTodoList = (
+  todos: ITodo[],
+  textToFilter: string
+): ITodo[] => {
+  return todos.filter((todo) => textToFilter.includes(todo.text));
 };
