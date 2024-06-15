@@ -1,3 +1,7 @@
+Requirements:
+- Node Version Manager
+- Node 18.17.0
+
 Steps to run:
 1. clone repo and open folder in VSCode
 2. open a bash terminal enter commands:
