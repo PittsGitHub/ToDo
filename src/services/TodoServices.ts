@@ -1,9 +1,13 @@
+import { ISearchAddInput } from "../interfaces/ISearchAddInput";
 import { ITodo } from "../interfaces/ITodo";
 
-export const addTodo = (todos: ITodo[], text: string): ITodo[] => {
+export const addTodo = (
+  todos: ITodo[],
+  valuesInput: ISearchAddInput
+): ITodo[] => {
   const newTodo: ITodo = {
     id: Date.now(),
-    text,
+    text: valuesInput.inputText,
     completed: false,
     editMode: false,
   };
@@ -12,19 +16,20 @@ export const addTodo = (todos: ITodo[], text: string): ITodo[] => {
 
 export const toggleEditMode = (todos: ITodo[], id: number): ITodo[] => {
   return todos.map((todo) =>
-    todo.id === id ? { ...todo, editMode: !todo.editMode } : todo,
+    todo.id === id ? { ...todo, editMode: !todo.editMode } : todo
   );
 };
 
 export const toggleCompleteTodo = (todos: ITodo[], id: number): ITodo[] => {
   return todos.map((todo) =>
-    todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+    todo.id === id ? { ...todo, completed: !todo.completed } : todo
   );
 };
 
 export const removeTodo = (todos: ITodo[], id: number): ITodo[] => {
   return todos.filter((todo) => todo.id !== id);
 };
+
 export const editTodo = (todos: ITodo[], id: number, text: string): ITodo[] => {
   return todos.map((todo) => {
     if (todo.id === id) {
@@ -32,4 +37,13 @@ export const editTodo = (todos: ITodo[], id: number, text: string): ITodo[] => {
     }
     return todo;
   });
+};
+
+export const updateSearchAddInput = (
+  currentSearchAddInput: ISearchAddInput,
+  newText: string
+): ISearchAddInput => {
+  currentSearchAddInput = { inputText: newText };
+
+  return currentSearchAddInput;
 };

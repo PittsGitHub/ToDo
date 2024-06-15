@@ -5,10 +5,12 @@ import {
   addTodo,
   toggleEditMode,
   toggleCompleteTodo,
+  updateSearchAddInput,
   removeTodo,
   editTodo,
 } from "./services/TodoServices";
 import { ITodo } from "./interfaces/ITodo";
+import { ISearchAddInput } from "./interfaces/ISearchAddInput";
 import "./styles/collection.style.css";
 
 /**
@@ -21,9 +23,12 @@ import "./styles/collection.style.css";
  */
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const [searchAddInput, setSearchAddInput] = useState<ISearchAddInput>({
+    inputText: "",
+  });
 
-  const handleAddTodo = (text: string) => {
-    setTodos(addTodo(todos, text)); //
+  const handleAddTodo = (searchAddInput: ISearchAddInput) => {
+    setTodos(addTodo(todos, searchAddInput)); //
   };
 
   const handleEditModeToggleTodo = (id: number) => {
@@ -41,10 +46,18 @@ const App: React.FC = () => {
     setTodos(editTodo(todos, id, text));
   };
 
+  const handleUpdateSearchAddInput = (text: string) => {
+    setSearchAddInput(updateSearchAddInput(searchAddInput, text));
+  };
+
   return (
     <div className="App">
-      <h1 className="todo-list-header">Todos</h1>{" "}
-      <TodoForm addTodo={handleAddTodo} />{" "}
+      <h1 className="todo-list-header">Todos</h1>
+      <TodoForm
+        currentSearchAddInput={searchAddInput}
+        updateSearchAddInput={handleUpdateSearchAddInput}
+        addTodo={handleAddTodo}
+      />
       <TodoList
         todos={todos}
         toggleEditModeTodo={handleEditModeToggleTodo}

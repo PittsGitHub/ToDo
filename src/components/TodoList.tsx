@@ -46,7 +46,7 @@ const TodoList: React.FC<TodoListProps> = ({
             removeTodo={removeTodo}
             editTodo={editTodo}
           />
-        ),
+        )
       )}
     </div>
   );

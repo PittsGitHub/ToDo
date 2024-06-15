@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { ISearchAddInput } from "../interfaces/ISearchAddInput";
 
 interface TodoFormProps {
-  addTodo: (text: string) => void;
+  currentSearchAddInput: ISearchAddInput;
+  updateSearchAddInput: (inputText: string) => void;
+  addTodo: (searchAddInputText: ISearchAddInput) => void;
 }
 
 /**
@@ -12,13 +15,17 @@ interface TodoFormProps {
  * When the form is submitted, it calls the addTodo function passed via props
  * to add the new task and then resets the input field.
  */
-const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
+const TodoForm: React.FC<TodoFormProps> = ({
+  currentSearchAddInput,
+  updateSearchAddInput,
+  addTodo,
+}) => {
   const [text, setText] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (text.trim()) {
-      addTodo(text);
+    if (text.trim() && text !== undefined) {
+      addTodo(currentSearchAddInput);
       setText("");
     }
   };
@@ -30,7 +37,10 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
           <input
             type="text"
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              setText(e.target.value);
+              updateSearchAddInput(e.target.value);
+            }}
             placeholder="new todo..."
             className="todo-input"
           />
