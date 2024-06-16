@@ -41,7 +41,7 @@ const TodoForm: React.FC<TodoFormProps> = ({
               setText(e.target.value);
               updateSearchAddInput(e.target.value);
             }}
-            placeholder="what is there todo?"
+            placeholder="search or add todo..."
             className="todo-input"
           />
           <button className="todo-form-add-button">Add</button>
