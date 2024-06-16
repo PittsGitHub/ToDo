@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { ISearchAddInput } from "../interfaces/ISearchAddInput";
+import { IManageTodoListRender } from "../interfaces/IManageTodoListRender";
 
 interface TodoFormProps {
-  currentSearchAddInput: ISearchAddInput;
+  currentSearchAddInput: IManageTodoListRender;
   updateSearchAddInput: (inputText: string) => void;
-  addTodo: (searchAddInputText: ISearchAddInput) => void;
+  addTodo: (searchAddInputText: IManageTodoListRender) => void;
 }
 
 /**
@@ -41,7 +41,7 @@ const TodoForm: React.FC<TodoFormProps> = ({
               setText(e.target.value);
               updateSearchAddInput(e.target.value);
             }}
-            placeholder="new todo..."
+            placeholder="what is there todo?"
             className="todo-input"
           />
           <button className="todo-form-add-button">Add</button>

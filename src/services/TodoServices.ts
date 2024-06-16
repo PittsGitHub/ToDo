@@ -1,14 +1,14 @@
-import { ISearchAddInput } from "../interfaces/ISearchAddInput";
+import { IManageTodoListRender } from "../interfaces/IManageTodoListRender";
 import { ITodo } from "../interfaces/ITodo";
 import { countCharactersWithoutSpaces } from "./HelperServices";
 
 export const addTodo = (
   todos: ITodo[],
-  valuesInput: ISearchAddInput
+  valuesInput: IManageTodoListRender
 ): ITodo[] => {
   const newTodo: ITodo = {
     id: Date.now(),
-    text: valuesInput.inputText,
+    text: valuesInput.textFilterForLiquidTodoList,
     completed: false,
     editMode: false,
   };
@@ -40,22 +40,30 @@ export const editTodo = (todos: ITodo[], id: number, text: string): ITodo[] => {
   });
 };
 
-export const updateSearchAddInput = (
-  currentSearchAddInput: ISearchAddInput,
+export const manageLiquidTodoListRendering = (
+  todoListRendering: IManageTodoListRender,
   newText: string
-): ISearchAddInput => {
-  currentSearchAddInput = { inputText: newText, filterTodos: false };
+): IManageTodoListRender => {
+  todoListRendering = {
+    solidTodoList: todoListRendering.solidTodoList,
+    liquidTodoList: todoListRendering.solidTodoList,
+    textFilterForLiquidTodoList: newText,
+    renderLiquidTodoList: false,
+  };
 
   if (countCharactersWithoutSpaces(newText) > 2) {
-    currentSearchAddInput.filterTodos = true;
+    todoListRendering.renderLiquidTodoList = true;
   }
 
-  return currentSearchAddInput;
+  return todoListRendering;
 };
 
-export const filterTodoList = (
+export const createFilteredTodoList = (
   todos: ITodo[],
   textToFilter: string
 ): ITodo[] => {
-  return todos.filter((todo) => textToFilter.includes(todo.text));
+  const lowerCaseFilter = textToFilter.toLowerCase();
+  return todos.filter((todo) =>
+    todo.text.toLowerCase().includes(lowerCaseFilter)
+  );
 };
