@@ -1,3 +1,7 @@
+Latest version can be viewed here:
+https://pittsgithub.github.io/todo/
+
+Or to run locally:
 Requirements:
 - Node Version Manager
 - Node 18.17.0
